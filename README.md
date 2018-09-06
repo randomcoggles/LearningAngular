@@ -1,5 +1,14 @@
 # LearningAngular
 
+## Fazer neste projecto:
+*[] Criar um CRUD de Checklist
+*[] Criar um CRUD de Usuários e perfis para possibilitar permissionamentos nos checklists
+*[] Criar perfis de usuário
+*[] Encontrar o melhor jeito de modularizar todo este ambiente
+
+##### Link para a Dexie: (https://raw.githubusercontent.com/dfahlander/Dexie.js/master/samples/angular2/src/app/todos.service.ts)
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
 ## Development server
