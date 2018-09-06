@@ -1,0 +1,5 @@
+Great cheatsheets:
+  https://www.cheatography.com/#
+
+Last tutorial at:
+  https://angular.io/tutorial/toh-pt4

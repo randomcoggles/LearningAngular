@@ -1,0 +1,23 @@
+<div  class="padding1em mat-elevation-z2">
+  <h3>Todo's Management</h3>
+
+  <div class="button-row">
+    <button mat-button mat-raised-button   (click)="activeComponent = 'todos-list'">
+        <mat-icon aria-label="Add todo icon"><i  class="material-icons">list_alt</i></mat-icon>
+        All TODO'S
+    </button>
+    <button mat-raised-button="activeComponent == 'create-todos'" (click)="activeComponent = 'create-todos'">
+        <mat-icon aria-label="Add todo icon"><i  class="material-icons">add</i></mat-icon>
+        Add todo
+    </button>
+  </div>
+
+
+  <app-create-todo *ngIf="activeComponent == 'create-todos'" (addTodo)="onAddTodo($event)" class="padding1em" ></app-create-todo>
+
+  <app-todo-list *ngIf="activeComponent == 'todos-list'" class="padding1em"
+    [todos]="todosList"
+    (toggleTodo)="onToggleTodo($event)"
+    (deleteTodo)="onDeleteTodo($event)"
+  ></app-todo-list>
+</div>

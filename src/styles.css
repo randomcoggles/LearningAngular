@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+/*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/
+
+@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
+
+.padding1em{
+  padding: 1em;
+}
+.padding5{
+  padding: 5px;
+}
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+.flex-col{
+  display: flex;
+  flex-direction: column;
+}
+
+.flex{
+  flex:1;
+}
+
+.no-shadow {
+  box-shadow: none!important;
+}

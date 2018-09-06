@@ -1,0 +1,22 @@
+<div >
+  <form class="example-form" [formGroup]="todoForm">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Title" formControlName="title"/>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Description" formControlName="description"/>
+        <!--
+      <textarea matInput placeholder="Description" [(ngModel)]="todo.description"></textarea>
+        -->
+    </mat-form-field>
+
+
+  <button mat-button type="button" (click)="onAddTodo()">
+      <mat-icon aria-label="Add todo icon"><i  class="material-icons rotate-minus-30">send</i></mat-icon>
+    Add Todo
+  </button>
+  </form>
+
+
+</div>
