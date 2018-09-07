@@ -1,26 +1,36 @@
 <mat-toolbar color="primary" role="header">
 
-  <button *ngIf="!opened" mat-fab color="primary" class="no-shadow"  (click)="opened = !opened">
-    <i  class="material-icons">menu</i>
+  <button *ngIf="!opened" mat-fab color="primary" class="no-shadow" (click)="opened = !opened">
+    <i class="material-icons">menu</i>
   </button>
   <img class="logo" src="../assets/images/logo.png">
   <h3>Learning Angular6 with Angular Material</h3>
 </mat-toolbar>
 
-<mat-sidenav-container class="example-container" >
+<mat-sidenav-container class="example-container" autosize>
 
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
-               (closed)="events.push('close!')">
+  <mat-sidenav autosize class="side-nav-container" #sidenav mode="side" [(opened)]="opened">
 
-    <!-- Menu lateral -->
+    <div>
+
+      <button *ngIf="opened" mat-button (click)="sidenav.toggle()" class="side-nav-command">
+        <i class="material-icons">arrow_left</i>
+      </button>
+      <button *ngIf="opened" mat-button (click)="toggleLabels()" class="side-nav-command">
+        <i class="material-icons">more_vert</i>
+      </button>
+
+    </div>
+    <app-side-menu [config]="sideNavConfig"></app-side-menu>
+    <!-- Menu lateral
     <mat-nav-list>
-        <a mat-list-item routerLink="/first-page">
-          <button mat-mini-fab  *ngIf="opened" mat-raised-button (click)="opened = !opened">
+        <a mat-list-item >
+          <button mat-mini-fab  *ngIf="opened" mat-raised-button (click)="opened = !opened" >
             <mat-icon aria-label="Example icon-button with a heart icon"><i  class="material-icons">close</i></mat-icon>
           </button>
         </a>
 
-        <a mat-list-item routerLink="/task-list">
+        <a mat-list-item routerLink="">
           <button mat-mini-fab   mat-raised-button  matTooltip="Todos" >
             <mat-icon aria-label="TODOS component"><i  class="material-icons">list</i></mat-icon>
           </button>
@@ -45,23 +55,15 @@
         </a>
     </mat-nav-list>
 
+  -->
   </mat-sidenav>
 
   <mat-sidenav-content class="padding1em main">
 
-
-
-
-
-       <router-outlet></router-outlet>
-    <!--
-    <app-side-menu></app-side-menu>
-    <app-todos> </app-todos>
-    <app-heroes></app-heroes>
-    -->
-
+    <router-outlet></router-outlet>
 
   </mat-sidenav-content>
+
 </mat-sidenav-container>
 
 <mat-toolbar color="accent" role="footer">

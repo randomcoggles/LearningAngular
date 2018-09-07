@@ -10,3 +10,10 @@ mat-sidenav-content.main{
   max-width: 50px;
   margin: 5px;
 }
+.side-nav-container {
+  max-width: 250px;
+}
+.side-nav-command{
+  min-width: inherit;
+  padding: 0px;
+}

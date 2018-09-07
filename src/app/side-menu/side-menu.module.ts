@@ -2,14 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SideMenuComponent } from './side-menu.component';
 import { MatListModule, MatIconModule, MatButtonModule, MatInputModule, MatCheckboxModule } from '@angular/material';
-import { MenuService } from './menu.service';
-import { CreateMenuComponent } from './management/create/create.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { CacheMenuService } from '../core/site-navigation/cache-menu.service';
 
-// const routes: Routes = [
-//   { path: 'todos', component: TodosComponent }
-// ];
+const routes: Routes = [];
 
 @NgModule({
   imports: [
@@ -21,10 +18,10 @@ import { RouterModule, Routes } from '@angular/router';
     MatInputModule,
     MatCheckboxModule,
     MatListModule,
-    // RouterModule.forChild(routes),
+    RouterModule.forChild(routes),
   ],
   exports: [SideMenuComponent],
-  declarations: [SideMenuComponent, CreateMenuComponent],
-  providers: [ MenuService ]
+  declarations: [SideMenuComponent],
+  providers: [ CacheMenuService ]
 })
 export class SideMenuModule { }

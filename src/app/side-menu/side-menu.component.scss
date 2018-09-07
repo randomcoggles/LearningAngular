@@ -1,0 +1,18 @@
+.menu-icon-img {
+  /*background-image:url('assets/images/site-nav-icon.png')*/
+  padding: 0px 12px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.menu-item-title {
+  margin-left: 0.5em;
+  max-width: 2500px;
+  transition: all .5s linear;
+  &.hide {
+    max-width: 0;
+    overflow-x: hidden;
+    margin: 0;
+    transition: all .5s linear;
+  }
+}

@@ -2,11 +2,12 @@ import Dexie from 'dexie';
 
 export class DexieService extends Dexie {
   constructor() {
-    super('Ng2DexieSample');
+    super('AppDB');
     this.version(1).stores({
       todos: '++id',
       menuItems: '++id',
-      tasks: '++id'
+      tasks: '++id',
+      links: '++id'
     });
   }
 }
