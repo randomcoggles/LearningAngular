@@ -6,6 +6,7 @@ export class DexieService extends Dexie {
     this.version(1).stores({
       todos: '++id',
       menuItems: '++id',
+      checklistItems: '++id',
       tasks: '++id',
       links: '++id'
     });

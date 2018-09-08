@@ -34,3 +34,8 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+*[Material icons](https://material.io/tools/icons/?icon=delete&style=baseline)
+*[Dexie pagination example](https://github.com/dfahlander/Dexie.js/issues/411)
+*[Pagination](https://medium.com/@JeremyLaine/server-side-pagination-and-filtering-with-angular-6-280a7909e783)
+*[Pagination](https://github.com/jlaine/pony-pagination-app/blob/master/src/app/pagination.ts)

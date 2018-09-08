@@ -14,8 +14,10 @@ export interface Link {
   expanded?: boolean;
   icon?: string;
   iconUrl?: string;
-  appearAtComponent: string;
+  showAt: string;
 }
+
+
 
 @Injectable({
   providedIn: 'root'

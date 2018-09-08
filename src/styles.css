@@ -25,3 +25,10 @@
 .no-shadow {
   box-shadow: none!important;
 }
+
+mat-icon>img.material-icons {
+  width: 24px;
+  height: 24px;
+  margin-top: -14px;
+  margin-left: -5px;
+}

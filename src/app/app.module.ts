@@ -21,6 +21,7 @@ import { InterceptorsModule } from './core/interceptors/interceptors.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiInterceptor } from './core/interceptors/api-interceptor';
 import { AdminModule } from './admin/admin.module';
+import { ChecklistModule } from './checklist/checklist.module';
 
 
 const routes: Routes = [
@@ -41,9 +42,7 @@ const routes: Routes = [
       HttpClientModule,
       InterceptorsModule,
       FormsModule,
-
       BrowserAnimationsModule,
-      AdminModule,
 
       MatSidenavModule,
       MatListModule,
@@ -53,7 +52,11 @@ const routes: Routes = [
       TodosModule,
       SideMenuModule,
       SiteNavigationModule,
-      RouterModule.forRoot(routes)
+      RouterModule.forRoot(routes),
+
+
+      AdminModule,
+      ChecklistModule
    ],
    schemas: [
       CUSTOM_ELEMENTS_SCHEMA

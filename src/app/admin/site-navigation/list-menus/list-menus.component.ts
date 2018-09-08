@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-// import { MenuItem, cacheMenuService } from '/core/site-navigation/cache-menu.service';
 import { CacheMenuService, MenuItem } from '../../../core/site-navigation/cache-menu.service';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -12,9 +11,10 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './list-menus.component.html',
   styleUrls: ['./list-menus.component.scss']
 })
+// TODO: Load items filtrered for by SideMenu item type
 export class ListMenusComponent implements OnInit {
   @Input() menuItems: MenuItem[];
-  displayedColumns: string[] = ['id', 'icon', 'title', 'description', 'path', 'actions'];
+  displayedColumns: string[] = ['id', 'icon', 'title', 'description', 'path', 'showAt', 'actions'];
   dataSource: MatTableDataSource<MenuItem>;
   dialogRef: MatDialogRef<CreateMenuComponent>;
 
@@ -46,7 +46,8 @@ export class ListMenusComponent implements OnInit {
 
   edit(menuItem) {
     this.dialog.open(UpdateMenusComponent, {
-      data: menuItem
+      data: menuItem,
+      hasBackdrop: true
     }).afterClosed().subscribe(() => {
       this.loadMenus();
     });
@@ -54,7 +55,8 @@ export class ListMenusComponent implements OnInit {
 
   newItem() {
     this.dialog.open(CreateMenuComponent, {
-      data: {command: 'create'}
+      data: {command: 'create'},
+      hasBackdrop: true
     }).afterClosed().subscribe(() => {
       this.loadMenus();
     });

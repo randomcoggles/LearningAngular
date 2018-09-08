@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Create new checklist item</h2>
+
+<mat-dialog-content>
+    <form class="flex-row" [formGroup]="form" class="flex-row" onSubmit="submit()">
+      <mat-form-field class="input-container">
+        <input matInput placeholder="Title" autofocus formControlName="title" minlength="10" required maxlength="100" />
+      </mat-form-field>
+
+      <mat-form-field class="input-container">
+        <input matInput placeholder="Description" formControlName="description" maxlength="255" />
+      </mat-form-field>
+
+      <div class="input-container checkbox-wrap">
+        <mat-checkbox title="Check this if this is done" formControlName="done"> Done?</mat-checkbox>
+      </div>
+
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]="true" color="warn">Cancel(Esc)</button>
+  <button mat-raised-button type="button" color="primary" [disabled]="form.invalid" [title]="form.invalid ? 'All fields must be valid' : 'Submit form'"
+    (click)="submit()">
+    <mat-icon aria-label="Add new item icon">
+      <i class="material-icons rotate-minus-30">send</i>
+    </mat-icon>
+    Submit
+  </button>
+</mat-dialog-actions>

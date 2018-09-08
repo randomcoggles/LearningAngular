@@ -23,6 +23,7 @@ import { UpdateMenusComponent } from './update-menus/update-menus.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LinkService } from '../../core/site-navigation/link.service';
 import { Routes, RouterModule } from '@angular/router';
+import { MatToolbarModule } from '@angular/material';
 
 const routes: Routes = [
   {
@@ -44,6 +45,7 @@ const routes: Routes = [
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
+    MatToolbarModule,
 
     RouterModule.forChild(routes)
   ],

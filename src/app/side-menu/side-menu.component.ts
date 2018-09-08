@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MenuItem, CacheMenuService } from '../core/site-navigation/cache-menu.service';
+import {
+  MenuItem,
+  CacheMenuService
+} from '../core/site-navigation/cache-menu.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -8,16 +11,24 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./side-menu.component.scss']
 })
 export class SideMenuComponent implements OnInit {
-  @Input() menuItems: MenuItem[];
-  @Input() expandido: Boolean;
-  @Input() config: any;
-  constructor( private cacheMenuService: CacheMenuService, private _sanitizer: DomSanitizer) { }
+  @Input()
+  menuItems: MenuItem[];
+  @Input()
+  expandido: Boolean;
+  @Input()
+  config: any;
+  constructor(
+    private cacheMenuService: CacheMenuService,
+    private _sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit() {
-    this.cacheMenuService.getAll().
-      then((menuItems: MenuItem[]) => {
+    this.cacheMenuService
+      .getAll()
+      .then((menuItems: MenuItem[]) => {
         this.menuItems = menuItems;
-      }).catch(ex => {
+      })
+      .catch(ex => {
         console.log(ex);
       });
 
@@ -29,36 +40,27 @@ export class SideMenuComponent implements OnInit {
     //     }
     //   );
     // }
-
   }
 
   getBackground(image) {
-      return this._sanitizer.bypassSecurityTrustStyle(`url(${image})`);
+    return this._sanitizer.bypassSecurityTrustStyle(`url(${image})`);
   }
 
   // Accordion Menu type
   open(menuItem) {
     const expanded = menuItem.expanded;
-    this.menuItems.forEach(item => item.expanded = false);
+    this.menuItems.forEach(item => (item.expanded = false));
     menuItem.expanded = !expanded;
   }
-
-  // getIcon(menuItem: MenuItem): string {
-  //   if ( !iconeStr || iconeStr === 'subcat') { return 'fa fa-circle'; }
-  //   return iconeStr;
-  // }
-
 }
 
 // ==============================================
 
-
 export class SideMenuItemComponent extends SideMenuComponent {
+  @Input()
+  menuItems: any[] = [];
 
-  @Input() menuItems: any[] = [];
-
-  constructor( cacheMenuService: CacheMenuService,  _sanitizer: DomSanitizer) {
-    super(cacheMenuService,  _sanitizer);
+  constructor(cacheMenuService: CacheMenuService, _sanitizer: DomSanitizer) {
+    super(cacheMenuService, _sanitizer);
   }
-
 }
