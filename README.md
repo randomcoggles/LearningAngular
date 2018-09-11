@@ -6,7 +6,7 @@
 + <input type="checkbox"/> Criar perfis de usuário
 + <input type="checkbox"/> Encontrar o melhor jeito de modularizar todo este ambiente
 + <input type="checkbox"/> Create a painel of icons with [Material icons codepoints](C:\Users\User\Documents\Projects\Github\LearningAngular\node_modules\material-design-icons\iconfont\codepoints)
-+ <input type="checkbox"/> Create fileupload component in a shared folder.
++ <input type="checkbox"/> Create fileupload component in a shared folder(upload of png file is needed).
 ##### Link para a Dexie: (https://raw.githubusercontent.com/dfahlander/Dexie.js/master/samples/angular2/src/app/todos.service.ts)
 #### [Mardown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
