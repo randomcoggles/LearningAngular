@@ -31,7 +31,6 @@ export class CreateTodoComponent implements OnInit {
   }
 
   onAddTodo() {
-    console.log('Adding a todo...');
     this.addTodo.emit(this.todoForm.value);
   }
 

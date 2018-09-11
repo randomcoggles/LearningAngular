@@ -4,6 +4,7 @@ import { AdminComponent } from './admin.component';
 import { Routes, RouterModule } from '@angular/router';
 import { UserModule } from './user/user.module';
 import { UserComponent } from '../core/user/user.component';
+import { ExampleTableComponent } from '../example-table/example-table.component';
 
 const routes: Routes  = [
   {
@@ -13,7 +14,7 @@ const routes: Routes  = [
     path: 'user-management',
     component: UserComponent
   }
-]
+];
 
 @NgModule({
   imports: [

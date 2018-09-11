@@ -21,7 +21,6 @@ export class LoadSeedDataService {
 
   // TODO: Change this to get data from asstes folder via http
   createSeedData(): Promise<any> {
-    debugger;
     let linksPromise, checkListItemsPromise;
     this.linksTable.count().then(nItems => {
       if (nItems < 1) {
@@ -44,11 +43,8 @@ export class LoadSeedDataService {
   }
 
   downloadDataBase() {
-    console.log('getDBBackup() was called ------------------------');
     this.dbService.tables.forEach(table => {
-      console.log(`Table ${table.name}\t`, table);
       table.toArray().then(response => {
-        console.log(`all items from ${table.name}\t`, response);
         this.saveTableAsJSONFile(JSON.stringify(response, null, 3), table.name);
       });
     });

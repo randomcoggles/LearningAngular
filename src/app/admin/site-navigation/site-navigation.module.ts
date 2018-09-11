@@ -13,7 +13,8 @@ import {
   MAT_DIALOG_DEFAULT_OPTIONS,
   MatDialogModule,
   MatDialogRef,
-  MAT_DIALOG_DATA
+  MAT_DIALOG_DATA,
+  MatAutocompleteModule
 } from '@angular/material';
 import { ListMenusComponent } from './list-menus/list-menus.component';
 import { CacheMenuService } from '../../core/site-navigation/cache-menu.service';
@@ -46,6 +47,8 @@ const routes: Routes = [
     MatPaginatorModule,
     MatDialogModule,
     MatToolbarModule,
+    MatAutocompleteModule,
+    MatIconModule,
 
     RouterModule.forChild(routes)
   ],

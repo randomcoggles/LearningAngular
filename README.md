@@ -1,13 +1,16 @@
 # LearningAngular
 
 ## Fazer neste projecto:
-*[] Criar um CRUD de Checklist
-*[] Criar um CRUD de Usuários e perfis para possibilitar permissionamentos nos checklists
-*[] Criar perfis de usuário
-*[] Encontrar o melhor jeito de modularizar todo este ambiente
-
++ <input type="checkbox"/> Criar um CRUD de Checklist
++ <input type="checkbox"/> Criar um CRUD de Usuários e perfis para possibilitar permissionamentos nos checklists
++ <input type="checkbox"/> Criar perfis de usuário
++ <input type="checkbox"/> Encontrar o melhor jeito de modularizar todo este ambiente
++ <input type="checkbox"/> Create a painel of icons with [Material icons codepoints](C:\Users\User\Documents\Projects\Github\LearningAngular\node_modules\material-design-icons\iconfont\codepoints)
++ <input type="checkbox"/> Create fileupload component in a shared folder.
 ##### Link para a Dexie: (https://raw.githubusercontent.com/dfahlander/Dexie.js/master/samples/angular2/src/app/todos.service.ts)
+#### [Mardown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
+[Material icons codepoints](C:\Users\User\Documents\Projects\Github\LearningAngular\node_modules\material-design-icons\iconfont\codepoints)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 

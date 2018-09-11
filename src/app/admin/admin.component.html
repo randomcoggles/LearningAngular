@@ -1,13 +1,16 @@
-<h2>
-  Admin module</h2>
+<h2>Admin module</h2>
+<p style="color: red">Under construction</p>
 <div class="flex-row">
   <div class="left">
     <ul>
       <li>
-        <a [routerLink]="['/user-management/create']" routerLinkActive="router-link-active">Create</a>
+        <a [routerLink]="['user-management/create']" routerLinkActive="router-link-active">Create</a>
       </li>
       <li>
         <button (click)="backupData()">Backup data</button>
+      </li>
+      <li>
+          <a [routerLink]="['exampe-table']" routerLinkActive="router-link-active">Create</a>
       </li>
     </ul>
   </div>

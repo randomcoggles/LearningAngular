@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule, MatToolbarModule, MatTooltipModule } from '@angular/material';
+import { MatSidenavModule, MatToolbarModule, MatTooltipModule, MatTableModule, MatPaginatorModule, MatSortModule, MatMenuModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
@@ -22,6 +22,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiInterceptor } from './core/interceptors/api-interceptor';
 import { AdminModule } from './admin/admin.module';
 import { ChecklistModule } from './checklist/checklist.module';
+import { ExampleTableComponent } from './example-table/example-table.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 
 const routes: Routes = [
@@ -34,7 +36,8 @@ const routes: Routes = [
       HeroesComponent,
       HeroDetailComponent,
       MessagesComponent,
-      AngularSamplesComponent
+      AngularSamplesComponent,
+      ExampleTableComponent
    ],
    imports: [
       BrowserModule,
@@ -49,6 +52,11 @@ const routes: Routes = [
       MatToolbarModule,
       MatButtonModule,
       MatTooltipModule,
+      MatTableModule,
+      MatPaginatorModule,
+      MatSortModule,
+      LayoutModule,
+      MatMenuModule,
       TodosModule,
       SideMenuModule,
       SiteNavigationModule,
