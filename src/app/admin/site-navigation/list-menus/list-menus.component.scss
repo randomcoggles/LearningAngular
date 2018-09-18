@@ -12,3 +12,36 @@
     max-width: 35px;
   }
 }
+
+.todo-in-this-component{
+  font-style: italic;
+  mat-list-item {
+    height: inherit;
+    &::before{
+      content: '\2639';
+      content: '\2612';
+      content: '⊗';
+      font-size: 23px;
+      line-height: 17px;
+      height: 23px;
+      float: left;
+      font-weight: bold;
+      font-style: normal;
+      color: orangered;
+    }
+  }
+
+  mat-list-item.done:before {
+    content: '\2639';
+    content: '\263a';
+    content: '\2713';
+    font-size: 23px;
+    line-height: 17px;
+    height: 23px;
+    /* outline: dashed 1px; */
+    float: left;
+    font-weight: bold;
+    font-style: normal;
+    color: chartreuse;
+  }
+}

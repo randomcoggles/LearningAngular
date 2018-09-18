@@ -1,7 +1,7 @@
 
 <h5>Site navigation links</h5>
 <p>Use this list to keep and manage site navigation links.</p>
-<mat-toolbar>
+<mat-toolbar >
   <mat-toolbar-row>
       <button class="btn-action" color="primary" title="Add new item" mat-raised-button type="button" (click)="newItem()">
         <mat-icon aria-label="Create new item">
@@ -27,16 +27,35 @@
         </mat-icon>
       </button>
 
+      <button class="btn-action list-action clear-bg"  title="Groupings" mat-button type="button"  [matMenuTriggerFor]="groupingsMenu">
+        <mat-icon aria-label="Groupings">
+          <img class="material-icons" src="assets/images/list-groupings-light2.png">
+        </mat-icon>
+        <mat-menu #groupingsMenu="matMenu">
+          <button mat-menu-item>Show at</button>
+        </mat-menu>
+
+      </button>
+
   </mat-toolbar-row>
 </mat-toolbar>
 
 
 <div class="mat-elevation-z8">
-  <table mat-table [dataSource]="dataSource" class="menu-table">
-    <!-- Id Column -->
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> Id </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+
+<mat-progress-bar [bufferValue]="75" *ngIf="dataSourceIsLoading"  [value]="38" mode="indeterminate"></mat-progress-bar>
+
+  <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortChange($event)" class="menu-table" >
+
+    <ng-container matColumnDef="id" hidden="true">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- order Column -->
+    <ng-container matColumnDef="order">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Order </th>
+      <td mat-cell *matCellDef="let element"> {{element.order}} </td>
     </ng-container>
 
     <!-- Icon Column -->
@@ -56,7 +75,7 @@
 
     <!-- Title Column -->
     <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header > Title </th>
       <td mat-cell *matCellDef="let element"> {{element.title}} </td>
     </ng-container>
 
@@ -68,13 +87,13 @@
 
     <!-- Path Column -->
     <ng-container matColumnDef="path">
-      <th mat-header-cell *matHeaderCellDef> Path </th>
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> Path </th>
       <td mat-cell *matCellDef="let element"> {{element.path}} </td>
     </ng-container>
 
     <!-- Show at Column -->
     <ng-container matColumnDef="showAt">
-      <th mat-header-cell *matHeaderCellDef> Show at </th>
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> Show at </th>
       <td mat-cell *matCellDef="let element"> {{element.showAt}} </td>
     </ng-container>
 
@@ -110,5 +129,18 @@
 
   <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 </div>
-
-<hr>
+<hr/>
+<!-- TODO: Remove this list when this component is finished -->
+<mat-list class="todo-in-this-component">
+    <mat-list-item class="done">It creates items. Create form on a dialog.</mat-list-item>
+    <mat-list-item class="done">It reads items.</mat-list-item>
+    <mat-list-item class="done">It updates items. Update form on a dialog.</mat-list-item>
+    <mat-list-item class="done">It deletes items.</mat-list-item>
+    <mat-list-item class="done"> It is sorting on the server.</mat-list-item>
+    <mat-list-item class="done"> It uses hook method onCreating(sets createdDate to the item).</mat-list-item>
+    <mat-list-item class="done"> It uses hook method onUpdating(sets lasUpdatedDate to the item).</mat-list-item>
+    <mat-list-item>It is paginating on the server.</mat-list-item>
+    <mat-list-item>It allows grouping items.</mat-list-item>
+    <mat-list-item>It uploads icon image.</mat-list-item>
+    <mat-list-item>It prints selected items.</mat-list-item>
+</mat-list>

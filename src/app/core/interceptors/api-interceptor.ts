@@ -9,8 +9,7 @@ export class ApiInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     req.headers.set('key', 'DCtbqRXC8L');
     req.headers.set('testio', 'Mio testio');
-
-    console.log('req.headers.keys: ', req.headers.keys);
+    // console.log('req.headers.keys: ', req);
 
     const dupReq = req.clone({
       headers: req.headers,

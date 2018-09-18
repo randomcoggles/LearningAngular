@@ -22,6 +22,16 @@ export class LoadSeedDataService {
   // TODO: Change this to get data from asstes folder via http
   createSeedData(): Promise<any> {
     let linksPromise, checkListItemsPromise;
+    this.linksTable.hook('creating', function (primKey, obj, trans) {
+      if ( typeof obj.order !== 'number' ) { obj.order = 999999; }
+      obj.createdDate = new Date();
+    });
+
+    this.linksTable.hook('updating', function (newObj, primKey, obj, trans) {
+      if ( typeof newObj['order'] !== 'number' ) { newObj['order'] = 999999; }
+      newObj['lastUpdateDate'] = new Date();
+    });
+
     this.linksTable.count().then(nItems => {
       if (nItems < 1) {
         linksPromise = this.linksTable.bulkAdd(seedLinks);
@@ -29,6 +39,16 @@ export class LoadSeedDataService {
         linksPromise = Promise.resolve(true);
       }
 
+    });
+
+    this.checkListItemTable.hook('creating', function (primKey, obj, trans) {
+      if ( typeof obj['order'] !== 'number' ) { obj['order'] = 999999; }
+      obj['createdDate'] = new Date();
+    });
+
+    this.checkListItemTable.hook('updating', function (newObj, primKey, obj, trans) {
+      if ( typeof newObj['order'] !== 'number' ) { newObj['order'] = 999999; }
+      newObj['lastUpdateDate'] = new Date();
     });
 
     this.checkListItemTable.count().then(nItems => {

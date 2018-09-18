@@ -1,3 +1,56 @@
-<p>
-  create-link works!
-</p>
+<h2 mat-dialog-title>Create new link item(Prop form)</h2>
+
+<mat-dialog-content>
+
+  <div>
+    <form class="flex-row" [formGroup]="linksForm" class="flex-row" onSubmit="submit()">
+      <mat-form-field class="input-container">
+        <input matInput placeholder="Title" autofocus formControlName="title" required maxlength="65" />
+      </mat-form-field>
+
+      <mat-form-field class="input-container">
+        <input matInput placeholder="Description" formControlName="description" required maxlength="100" />
+      </mat-form-field>
+
+      <mat-form-field class="input-container">
+        <input matInput placeholder="Url" formControlName="path" required maxlength="255" />
+      </mat-form-field>
+
+
+      <mat-form-field class="input-container">
+        <input type="text" placeholder="Icon" role="combobox" aria-label="Number" matInput  formControlName="icon" [matAutocomplete]="codePointsAutoComplete">
+        <mat-autocomplete #codePointsAutoComplete="matAutocomplete">
+          <mat-option *ngFor="let option of codepointsObservable | async" [value]="option[0]">
+              <i class="material-icons">{{option[0]}}</i> {{option[0]}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field class="input-container">
+        <input matInput placeholder="Icon Url" formControlName="iconUrl" maxlength="255" />
+      </mat-form-field>
+
+      <mat-form-field class="input-container">
+        <input matInput placeholder="Order" formControlName="order" />
+      </mat-form-field>
+
+      <div class="input-container checkbox-wrap">
+        <mat-checkbox title="Should this link item be expanded by default(for menu links)?" formControlName="expanded"> Expanded?</mat-checkbox>
+      </div>
+
+    </form>
+  </div>
+  <p><i class="material-icons">info</i> After saving refresh your page for your new link to be seen</p>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button [mat-dialog-close]="true" color="warn">Cancel(Esc)</button>
+
+  <button mat-raised-button type="button" color="primary" [disabled]="linksForm.invalid" [title]="linksForm.invalid ? 'All fields must be valid' : 'Submit form'"
+    (click)="submit()">
+    <mat-icon aria-label="Add todo icon">
+      <i class="material-icons rotate-minus-30">send</i>
+    </mat-icon>
+    Submit
+  </button>
+</mat-dialog-actions>

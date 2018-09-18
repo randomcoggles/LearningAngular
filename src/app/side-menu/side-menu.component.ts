@@ -1,9 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {
-  MenuItem,
-  CacheMenuService
-} from '../core/site-navigation/cache-menu.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { LinkService, Link } from '../core/site-navigation/link.service';
 
 @Component({
   selector: 'app-side-menu',
@@ -12,25 +9,22 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class SideMenuComponent implements OnInit {
   @Input()
-  menuItems: MenuItem[];
+  links: Link[];
   @Input()
   expandido: Boolean;
   @Input()
   config: any;
   constructor(
-    private cacheMenuService: CacheMenuService,
+    private linkService: LinkService,
     private _sanitizer: DomSanitizer
   ) {}
 
   ngOnInit() {
-    this.cacheMenuService
-      .getAll()
-      .then((menuItems: MenuItem[]) => {
-        this.menuItems = menuItems;
-      })
-      .catch(ex => {
-        console.log(ex);
-      });
+    this.linkService
+      .get({params: {sort: 'order,asc'}})
+      .subscribe((links: Link[]) => {
+        this.links = links;
+      }, error => console.log(error));
 
     // TODO: implement save to server
     // if (this.menuItems.length <= 0) {
@@ -49,7 +43,7 @@ export class SideMenuComponent implements OnInit {
   // Accordion Menu type
   open(menuItem) {
     const expanded = menuItem.expanded;
-    this.menuItems.forEach(item => (item.expanded = false));
+    this.links.forEach(item => (item.expanded = false));
     menuItem.expanded = !expanded;
   }
 }
@@ -60,7 +54,7 @@ export class SideMenuItemComponent extends SideMenuComponent {
   @Input()
   menuItems: any[] = [];
 
-  constructor(cacheMenuService: CacheMenuService, _sanitizer: DomSanitizer) {
-    super(cacheMenuService, _sanitizer);
+  constructor(linkService: LinkService, _sanitizer: DomSanitizer) {
+    super(linkService, _sanitizer);
   }
 }

@@ -8,7 +8,7 @@ const seedLinks = [
      'expanded': false,
      'icon': 'people',
      'iconUrl': '',
-     'id': 2
+     'order': 9999999
   },
   {
      'showAt': 'SideMenu',
@@ -19,29 +19,29 @@ const seedLinks = [
      'expanded': false,
      'icon': 'list',
      'iconUrl': '',
-     'id': 3
+     'order': 4
   },
   {
      'showAt': 'SideMenu',
-     'title': 'Heros',
+     'title': 'Heroes',
      'description': 'Meet our heros.',
      'path': '/heroes',
      'disable': false,
      'expanded': false,
      'icon': 'group',
      'iconUrl': '',
-     'id': 4
+     'order': 9999999
   },
   {
      'showAt': 'SideMenu',
-     'title': 'Features with very, very long text',
+     'title': 'Link with very, very long text',
      'description': 'View and manage this site features.',
      'path': 'site-features',
      'disable': false,
      'expanded': false,
      'icon': 'apps',
      'iconUrl': '',
-     'id': 5
+     'order': 9999999
   },
   {
      'showAt': 'SideMenu',
@@ -52,7 +52,27 @@ const seedLinks = [
      'expanded': false,
      'icon': '',
      'iconUrl': 'assets/images/site-nav-icon.png',
-     'id': 6
+     'order': 3
+  },
+  {
+     'title': 'User permissions',
+     'description': 'Set user permissions',
+     'path': 'admin/site-settings/user-permissions',
+     'disable': false,
+     'expanded': false,
+     'icon': '',
+     'iconUrl': 'assets/images/user-permission-dark.png',
+     'order': 2
+  },
+  {
+     'title': 'Site Adminstration',
+     'description': 'Site administration page.',
+     'path': 'admin',
+     'disable': false,
+     'expanded': false,
+     'icon': '',
+     'iconUrl': 'assets/images/admin-user.png',
+     'order': 9999999
   }
 ];
 

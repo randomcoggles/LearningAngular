@@ -1,10 +1,10 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { CacheMenuService, MenuItem } from '../../../core/site-navigation/cache-menu.service';
-import { MatTableDataSource, MatPaginator } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatSort, Sort } from '@angular/material';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { CreateMenuComponent } from '../create-menus/create-menus.component';
 import { UpdateMenusComponent } from '../update-menus/update-menus.component';
 import { HttpClient } from '@angular/common/http';
+import { CreateLinkComponent } from '../create-link/create-link.component';
+import { LinkService, Link } from '../../../core/site-navigation/link.service';
 
 @Component({
   selector: 'app-list-menus',
@@ -13,40 +13,62 @@ import { HttpClient } from '@angular/common/http';
 })
 // TODO: Load items filtrered for by SideMenu item type
 export class ListMenusComponent implements OnInit {
-  @Input() menuItems: MenuItem[];
-  displayedColumns: string[] = ['id', 'icon', 'title', 'description', 'path', 'showAt', 'actions'];
-  dataSource: MatTableDataSource<MenuItem>;
-  dialogRef: MatDialogRef<CreateMenuComponent>;
+  @Input() links: Link[];
+  displayedColumns: string[] = ['id', 'order', 'icon', 'title', 'description', 'path', 'showAt', 'actions'];
+  dataSource: MatTableDataSource<Link>;
+  dialogRef: MatDialogRef<CreateLinkComponent>;
+  dataSourceIsLoading: Boolean;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private cacheMenuService: CacheMenuService, public dialog: MatDialog, private http: HttpClient) { }
+  @ViewChild(MatSort) sort: MatSort;
+  serverSortParam = 'order,asc';
 
-  ngOnInit() { this.loadMenus();  }
+  constructor(private linkService: LinkService, public dialog: MatDialog, private http: HttpClient) { }
 
-  loadMenus() {
-    this.cacheMenuService.getAll().then((menuItems: MenuItem[]) => {
-      this.menuItems = menuItems;
-      this.dataSource = new MatTableDataSource<MenuItem>(menuItems);
+  ngOnInit() {
+    this.loadMenus();
+
+  }
+
+  sortChange(sort: Sort) {
+    this.serverSortParam = sort.active + ',' + sort.direction;
+    this.loadMenus();
+  }
+
+  loadMenus() { // TODO: make it parameterized
+    this.dataSourceIsLoading = true;
+    this.linkService
+    // .getAll()
+    .get({params: {sort: this.serverSortParam}})
+    .subscribe((links: Link[]) => {
+      this.links = links;
+      this.dataSource = new MatTableDataSource<Link>(this.links);
       this.dataSource.paginator = this.paginator;
+      this.dataSourceIsLoading = false;
+      this.dataSource.sort = this.sort;
+    }, (error) => {
+      // TODO: Show error to the user
+      this.dataSourceIsLoading = false;
+      console.log('Acho que deu erro aqui, óh!', error) ;
     });
   }
 
   delete(id: number): void {
     // TODO: show a confirm dialog
 
-    this.cacheMenuService.remove(id)
-    .then(() => {
+    this.linkService.delete(id)
+    .subscribe(() => {
       // TODO: create method for refreshing datasource
-      this.menuItems = this.menuItems.filter((menuItem) => menuItem.id !== id);
-      this.dataSource = new MatTableDataSource<MenuItem>(this.menuItems);
+      this.links = this.links.filter((link: Link) => link.id !== id);
+      this.dataSource = new MatTableDataSource<Link>(this.links);
       this.dataSource.paginator = this.paginator;
     });
   }
 
-  edit(menuItem) {
+  edit(link) {
     this.dialog.open(UpdateMenusComponent, {
-      data: menuItem,
+      data: link,
       hasBackdrop: true
     }).afterClosed().subscribe(() => {
       this.loadMenus();
@@ -54,7 +76,7 @@ export class ListMenusComponent implements OnInit {
   }
 
   newItem() {
-    this.dialog.open(CreateMenuComponent, {
+    this.dialog.open(CreateLinkComponent, {
       data: {command: 'create'},
       hasBackdrop: true
     }).afterClosed().subscribe(() => {
@@ -63,24 +85,10 @@ export class ListMenusComponent implements OnInit {
   }
 
   makeCall() {
-    return this.http.get<MenuItem>('https://www.google.com.br/search?q=Angular+api+service&oq=Angular+api+service').
+    return this.http.get<Link>('https://www.google.com.br/search?q=Angular+api+service&oq=Angular+api+service').
     subscribe((response) => {
       console.log('Response:\t', response);
     });
   }
 
 }
-
-
-
-  /*{
-    id?: number;
-    title: string;
-    description?: string;
-    path: string;
-
-    disable?: boolean;
-    expanded?: boolean;
-    icon?: string;
-    iconUrl: string;
-  }*/

@@ -40,16 +40,6 @@ export class CacheMenuService {
     return this.table.toArray();
   }
 
-  getAppearAtComponentLis() {
-    //return this.table.where;
-  }
-
-  save(menuItems: MenuItem[]) {
-
-  }
-// ===========================
-
-
 
   add(data) {
     return this.table.add(data);

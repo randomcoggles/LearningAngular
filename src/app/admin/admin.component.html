@@ -1,6 +1,7 @@
-<h2>Admin module</h2>
+<h2>Site Administration</h2>
 <p style="color: red">Under construction</p>
 <div class="flex-row">
+
   <div class="left">
     <ul>
       <li>
@@ -12,9 +13,32 @@
       <li>
           <a [routerLink]="['exampe-table']" routerLinkActive="router-link-active">Create</a>
       </li>
+      <li>
+          <button matButton (click)="search()">search()</button>
+
+      </li>
+
     </ul>
   </div>
-  <div class="right flex">
+  <div class="right flex"><mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
     <router-outlet></router-outlet>
   </div>
 </div>

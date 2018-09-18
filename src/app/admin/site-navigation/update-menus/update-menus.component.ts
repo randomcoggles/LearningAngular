@@ -1,8 +1,8 @@
 
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CacheMenuService, MenuItem } from '../../../core/site-navigation/cache-menu.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Link, LinkService } from '../../../core/site-navigation/link.service';
 
 @Component({
   selector: 'app-update-menus',
@@ -15,19 +15,21 @@ export class UpdateMenusComponent {
 
   constructor(
     // private menuService: MenuService/*TODO: server persistence*/,
-    private cacheMenuService: CacheMenuService,
+    private linkService: LinkService,
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<UpdateMenusComponent>,
-    @Inject(MAT_DIALOG_DATA) public menuItem: MenuItem) {
+    @Inject(MAT_DIALOG_DATA) public link: Link) {
 
       this.menuForm = fb.group({
-        title: [menuItem.title, Validators.required],
-        description: [menuItem.description, Validators.required],
-        path: [menuItem.path, Validators.required],
-        disable:  [menuItem.disable],
-        expanded:  [menuItem.expanded],
-        icon:  [menuItem.icon],
-        iconUrl: [menuItem.iconUrl]
+        id: [link.id],
+        title: [link.title, Validators.required],
+        description: [link.description, Validators.required],
+        path: [link.path, Validators.required],
+        disable:  [link.disable],
+        expanded:  [link.expanded],
+        icon:  [link.icon],
+        iconUrl: [link.iconUrl],
+        order: [link.order]
       });
 
   }
@@ -35,16 +37,17 @@ export class UpdateMenusComponent {
   submit() {
 
     if (this.menuForm.invalid) { return; }
-    this.cacheMenuService.update(this.menuItem.id, this.menuForm.value).
-      then((updated) => {
+    this.linkService.update(this.menuForm.value).
+      subscribe((updated) => {
+        console.log('updated:\t', updated);
         if (updated) {
           alert('Dados atualizados com sucesso');
           this.dialogRef.close();
         } else {
           alert('This item wasn\'t updated!');
         }
-      }).
-      catch(error => alert(error));
+      },
+      error => alert(error));
   }
 
 }

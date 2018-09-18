@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserModule } from './user/user.module';
 import { UserComponent } from '../core/user/user.component';
 import { ExampleTableComponent } from '../example-table/example-table.component';
+import { MatCardModule } from '@angular/material';
 
 const routes: Routes  = [
   {
@@ -20,6 +21,7 @@ const routes: Routes  = [
   imports: [
     CommonModule,
     UserModule,
+    MatCardModule,
     RouterModule.forChild(routes)
   ],
   declarations: [AdminComponent, UserComponent]

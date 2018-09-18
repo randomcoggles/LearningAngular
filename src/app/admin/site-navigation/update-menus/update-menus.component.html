@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Update {{menuItem.title}}</h2>
+<h2 mat-dialog-title>Update item</h2>
 
 
   <mat-dialog-content>
@@ -22,6 +22,10 @@
 
         <mat-form-field class="input-container">
           <input matInput placeholder="Icon Url" formControlName="iconUrl" maxlength="255" />
+        </mat-form-field>
+
+        <mat-form-field class="input-container">
+          <input matInput placeholder="Order" type="number" formControlName="order" />
         </mat-form-field>
 
         <div class="input-container checkbox-wrap">

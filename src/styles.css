@@ -42,3 +42,8 @@ mat-icon>img.material-icons {
   margin-top: -14px;
   margin-left: -5px;
 }
+
+/* It's a fix for theme pink-bluegrey.css I'm using in this project*/
+.mat-progress-bar-buffer {
+  background-color: #ee5388;
+}

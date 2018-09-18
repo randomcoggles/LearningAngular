@@ -14,8 +14,11 @@ import {
   MatDialogModule,
   MatDialogRef,
   MAT_DIALOG_DATA,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatSortModule,
+  MatMenuModule,
 } from '@angular/material';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ListMenusComponent } from './list-menus/list-menus.component';
 import { CacheMenuService } from '../../core/site-navigation/cache-menu.service';
 import { CreateMenuComponent } from './create-menus/create-menus.component';
@@ -49,6 +52,9 @@ const routes: Routes = [
     MatToolbarModule,
     MatAutocompleteModule,
     MatIconModule,
+    MatProgressBarModule,
+    MatSortModule,
+    MatMenuModule,
 
     RouterModule.forChild(routes)
   ],
@@ -56,7 +62,7 @@ const routes: Routes = [
     CreateLinkComponent,
     UpdateMenusComponent
 ],
-  exports: [SiteNavigationComponent],
+  exports: [SiteNavigationComponent, MatProgressBarModule],
   providers: [
     LinkService,
     CacheMenuService,
@@ -65,7 +71,7 @@ const routes: Routes = [
     { provide: MAT_DIALOG_DATA, useValue: [] },
 
   ],
-  entryComponents: [CreateMenuComponent, UpdateMenusComponent]
+  entryComponents: [CreateLinkComponent, UpdateMenusComponent]
 
 })
 export class SiteNavigationModule { }
