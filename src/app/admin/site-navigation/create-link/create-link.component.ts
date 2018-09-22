@@ -5,6 +5,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
 import { startWith, map } from 'rxjs/operators';
 import { Observable, of} from 'rxjs';
+import { Link } from '../../../core/backend/apis/links/index';
+import { LinkService } from '../../../core/site-navigation/link.service';
 
 @Component({
   selector: 'app-create-link',
@@ -16,7 +18,7 @@ export class CreateLinkComponent implements OnInit {
   codepoints = <any>[];
   codepointsObservable: Observable<any[]>;
   constructor(
-    private cacheMenuService: CacheMenuService,
+    private linkService: LinkService,
     private fb: FormBuilder,
     public dialogRef: MatDialogRef<CreateLinkComponent>,
     @Inject(MAT_DIALOG_DATA) private data: any, private http: HttpClient) { }
@@ -31,8 +33,9 @@ export class CreateLinkComponent implements OnInit {
       expanded:  [false],
       icon:  [''],
       iconUrl: [''],
-      order: ['']
-    });
+      showAt: [''],
+      order: [, Validators.min(1)]
+    } );
     // TODO: Create a service for this.
     this.http.get('assets/json/icons-codepoints.json').
     subscribe((results) => {
@@ -47,7 +50,6 @@ export class CreateLinkComponent implements OnInit {
 
   private _filter(filterTerm: string) {
     const filterTermLc = (filterTerm || '').toLowerCase();
-    console.log('filterTermLc: ', filterTermLc);
     const topValues = [];
     const arrayOfSomething = this.codepoints.filter((value: string) => {
       const match = (value && value[0]).toLowerCase().indexOf(filterTermLc) > -1;
@@ -60,7 +62,6 @@ export class CreateLinkComponent implements OnInit {
       return match;
     });
 
-    console.log('arrayOfSomething: ', arrayOfSomething);
     return [...topValues, ...arrayOfSomething];
   }
 
@@ -70,8 +71,14 @@ export class CreateLinkComponent implements OnInit {
 
   submit() {
     if (this.linksForm.invalid) { return; }
-    this.cacheMenuService.add(this.linksForm.value).then((menuItem) => {
-      this.linksForm.reset();
-    });
+    this.linkService.add(this.linksForm.value).subscribe((item) => {
+      if (item) {
+        alert('This item was created successfully'); // FIXME: Standardize these messages. Don't user alert
+        this.dialogRef.close();
+      } else {
+        alert('This item wasn\'t created!'); // FIXME: Standardize these messages. Don't user alert
+      }
+    },
+    error => alert(error)); // FIXME: Standardize these messages. Don't user alert
   }
 }

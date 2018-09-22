@@ -7,6 +7,8 @@
 + <input type="checkbox"/> Encontrar o melhor jeito de modularizar todo este ambiente
 + <input type="checkbox"/> Create a painel of icons with [Material icons codepoints](C:\Users\User\Documents\Projects\Github\LearningAngular\node_modules\material-design-icons\iconfont\codepoints)
 + <input type="checkbox"/> Create fileupload component in a shared folder.
++ <input type="checkbox"/> Create feature for save user preference data.
++ <input type="checkbox"/> Customize this app theming: (https://medium.com/@tomastrajan/the-complete-guide-to-angular-material-themes-4d165a9d24d1)
 ##### Link para a Dexie: (https://raw.githubusercontent.com/dfahlander/Dexie.js/master/samples/angular2/src/app/todos.service.ts)
 #### [Mardown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
@@ -42,3 +44,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 *[Dexie pagination example](https://github.com/dfahlander/Dexie.js/issues/411)
 *[Pagination](https://medium.com/@JeremyLaine/server-side-pagination-and-filtering-with-angular-6-280a7909e783)
 *[Pagination](https://github.com/jlaine/pony-pagination-app/blob/master/src/app/pagination.ts)
+*[Router guard](https://medium.com/@ryanchenkie_40935/angular-authentication-using-route-guards-bf7a4ca13ae3)
+*[FormArray example](https://stackblitz.com/edit/angular-reactive-form-sobsoft?file=app%2Fapp.component.ts)

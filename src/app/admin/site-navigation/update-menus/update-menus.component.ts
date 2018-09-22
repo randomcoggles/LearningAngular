@@ -29,6 +29,7 @@ export class UpdateMenusComponent {
         expanded:  [link.expanded],
         icon:  [link.icon],
         iconUrl: [link.iconUrl],
+        showAt: [link.showAt],
         order: [link.order]
       });
 

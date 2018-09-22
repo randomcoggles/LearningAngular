@@ -34,7 +34,7 @@ import { ExampleTableComponent } from './example-table/example-table.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { fakeBackendProvider } from './core/interceptors/FakeBackendInterceptor';
 
-const routes: Routes = [{ path: 'heroes', component: HeroesComponent }];
+const routes: Routes = [{ path: 'heroes', component: HeroesComponent }, {path: '', redirectTo: 'admin', pathMatch: 'full'}];
 
 @NgModule({
   declarations: [

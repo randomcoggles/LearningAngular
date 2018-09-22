@@ -16,3 +16,11 @@
     transition: all .5s linear;
   }
 }
+
+// TODO: used angular theming for this
+.mat-list-item.active{
+  background-color: #303030; // FIXME: Create a custom theming and user var instead.
+   button {
+    background-color: #009688;
+  }
+}

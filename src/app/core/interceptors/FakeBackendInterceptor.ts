@@ -42,6 +42,17 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     const pageNum = +req.params.get('page');
     const search = req.params.get('q');
 
+    const filterParam = req.params.get('filter');
+    let filter;
+    if ( filterParam ) {
+      // For this app we don't need to worry about sql injection, at least for now
+      const [column, operator, term] = filterParam.split(/\s+/g);
+      if ( column && operator && term) {
+        filter = { column, operator, term};
+      }
+      console.log(column, operator, term);
+    }
+
     // if()
     // const result = table
     // .where('[customerId+orderDate]')
@@ -141,12 +152,18 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           // Read many:
 
           let result;
-          console.log('typeof result 1\t:', typeof result);
+
+          if (filter) {
+            // FIXME:                         // Operator can be other than 'equals'
+            result = table.where(filter.column).equals(filter.term);
+          } else {
+            result = table.toCollection();
+          }
           if ( sortDirection ) {
             if (sortDirection === 'desc') {
-              result = table.orderBy(sortIndex).reverse();
+              result = result.reverse().sortBy(sortIndex);
             } else {
-              result = table.orderBy(sortIndex);
+              result = result.sortBy(sortIndex);
             }
           }
           console.log('typeof result 2\t:', typeof result);
@@ -156,12 +173,15 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 return item[search['field']].toLowerCase().indexOf(search['term']) > -1;
             });
           }
+
+
+
           window['table'] = result;
           console.log('typeof result 3\t:', typeof result);
           if ( !result ) { result = table; }
           promise = async () =>
             await result
-              .toArray()
+              // .toArray()
               .then(links => {
                 if (!links) {
                   errorResponse = {
@@ -175,7 +195,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
               })
               .catch(ex => {
                 // TODO: Build httpErrorResponse according to ex(error).
-                debugger;
                 console.log('FakeBackendInterceptor:\t', ex);
                 errorResponse = {
                   error: ex,

@@ -7,3 +7,47 @@
 .right{
     border: dashed 1px red;
 }
+
+.flex-row{
+  flex-wrap: wrap;
+}
+
+.tile {
+  width: 50%;
+  padding: 5px;
+  /* min-width: 180px; */
+  .tile-img {
+    max-width: 100%;
+    border: solid 5px #685645;
+    border-radius: 5px;
+    background-color: #f5f5dc;
+    background-color: #ffe8cf;
+    background-color: #f7dcbf;
+  }
+
+  .title-descr{
+    text-align: center;
+    padding: 10px;
+  }
+
+  a.tile-anchor {
+    text-decoration: none;
+    color: inherit;
+  }
+
+}
+
+@media (min-width: 768px) {
+  .tile {
+    width: 33.3%;
+    padding: 5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tile {
+    width: 25%;
+    min-width: 180px;
+    max-width: 300px;
+  }
+}

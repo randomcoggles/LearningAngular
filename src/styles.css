@@ -13,8 +13,11 @@ body{
 }
 .portrait .main-header .header-title {
 }*/
-.padding1em{
+.padding1em {
   padding: 1em;
+}
+.app-padding {
+  padding: .5em;
 }
 .padding5{
   padding: 5px;
@@ -46,4 +49,10 @@ mat-icon>img.material-icons {
 /* It's a fix for theme pink-bluegrey.css I'm using in this project*/
 .mat-progress-bar-buffer {
   background-color: #ee5388;
+}
+
+@media (min-width: 569px){
+  .app-padding{
+     padding: 1em;
+  }
 }

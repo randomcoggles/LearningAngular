@@ -50,7 +50,7 @@ export class ListMenusComponent implements OnInit {
     }, (error) => {
       // TODO: Show error to the user
       this.dataSourceIsLoading = false;
-      console.log('Acho que deu erro aqui, óh!', error) ;
+      console.log('[Links list] Error loading links!', error) ;
     });
   }
 
@@ -66,9 +66,10 @@ export class ListMenusComponent implements OnInit {
     });
   }
 
-  edit(link) {
+  edit(item) {
+    debugger;
     this.dialog.open(UpdateMenusComponent, {
-      data: link,
+      data: item,
       hasBackdrop: true
     }).afterClosed().subscribe(() => {
       this.loadMenus();
@@ -77,17 +78,10 @@ export class ListMenusComponent implements OnInit {
 
   newItem() {
     this.dialog.open(CreateLinkComponent, {
-      data: {command: 'create'},
+      data: {command: 'create'}, // FIXME: This is not being used(yet)
       hasBackdrop: true
     }).afterClosed().subscribe(() => {
       this.loadMenus();
-    });
-  }
-
-  makeCall() {
-    return this.http.get<Link>('https://www.google.com.br/search?q=Angular+api+service&oq=Angular+api+service').
-    subscribe((response) => {
-      console.log('Response:\t', response);
     });
   }
 

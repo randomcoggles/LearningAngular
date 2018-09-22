@@ -49,7 +49,7 @@ export class LinkService extends BaseService {
 
   add(data) {
     // return this.table.add(data);
-    return this.post<Link>('', data);
+    return this.create<Link>(data);
   }
 
   // TODO: move this method o base class

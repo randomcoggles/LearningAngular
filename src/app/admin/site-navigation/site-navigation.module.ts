@@ -55,7 +55,6 @@ const routes: Routes = [
     MatProgressBarModule,
     MatSortModule,
     MatMenuModule,
-
     RouterModule.forChild(routes)
   ],
   declarations: [SiteNavigationComponent, ListMenusComponent, CreateMenuComponent,
