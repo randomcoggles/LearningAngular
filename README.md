@@ -17,7 +17,7 @@
 + <input type="checkbox"/> Validate links data: When a user provides an iconUrl clear filed Icon
 + <input type="checkbox"/> Add anchor (a better)style.
 ## Running this app
-Run the commands: npm install, npm start. Refresh you page for links and menus to take effect.
+Run the commands: npm install, npm start.
 
 ## Screenshots
 
