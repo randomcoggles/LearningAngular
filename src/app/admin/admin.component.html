@@ -1,81 +1,24 @@
 <h2>Site Administration</h2>
 <p style="color: red">Under construction</p>
 <div class="flex-row">
+    <mat-progress-bar [bufferValue]="75" *ngIf="linksAreLoading"  [value]="38" mode="indeterminate"></mat-progress-bar>
 
-  <div class="tile">
-    <a class="tile-anchor" routerLink="site-navigation" >
-      <img class="tile-img" src="assets/images/admin-site-navigation.png" alt="site-navigation-img" />
+  <div class="tile" *ngFor="let link of links">
+    <a class="flex-col tile-anchor" [routerLink]="link.path" >
+      <img class="tile-img" [src]="link.iconUrl" alt="site-navigation-img" />
       <p class="title-descr">
-        Keep and manage all your site navigation
+        {{link.title}}
       </p>
     </a>
   </div>
-  <div class="tile">
-    <a class="tile-anchor" href="admin/site-navigation">
-      <img class="tile-img" src="assets/images/admin-authentication-tile.png" alt="site-navigation-img">
-      <p class="title-descr">
-        Authentication and authorization.
-      </p>
-    </a>
-  </div>
-  <div class="tile">
-    <a class="tile-anchor" href="admin/site-navigation">
-      <img class="tile-img" src="assets/images/admin-api-management.png" alt="site-navigation-img">
-      <p class="title-descr">
-        API management
-      </p>
-    </a>
-  </div>
-  <div class="tile">
-    <a class="tile-anchor" href="admin/site-navigation">
-      <img class="tile-img" src="assets/images/admin-data-management.png" alt="site-navigation-img">
-      <p class="title-descr">
-        Data management - Import/export
-      </p>
-    </a>
-  </div>
+
+
 </div>
-
-<div style="display:none;" class="flex-row">
-
-  <div class="left">
-    <ul>
-      <li>
-        <a [routerLink]="['user-management/create']" routerLinkActive="router-link-active">Create</a>
-      </li>
-      <li>
-        <button (click)="backupData()">Backup data</button>
-      </li>
-      <li>
-          <a [routerLink]="['exampe-table']" routerLinkActive="router-link-active">Create</a>
-      </li>
-      <li>
-          <button matButton (click)="search()">search()</button>
-
-      </li>
-
-    </ul>
-  </div>
-  <div class="right flex">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-      <mat-card-content>
-        <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions>
-    </mat-card>
-    <router-outlet></router-outlet>
-  </div>
-</div>
+<h2 _ngcontent-c9="" style="
+    color: #f7dcbf;
+    background-color: #f7dcbf;
+    padding: 15px;
+    color: #F44336;
+    border-radius: 5px;
+    text-align: center;
+"><i class="material-icons">warn</i> TODO: Take these links to the side menu, under "Site Administration" menu item</h2>

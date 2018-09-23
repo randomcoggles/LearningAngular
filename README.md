@@ -1,14 +1,20 @@
 # LearningAngular
 
 ## Fazer neste projecto:
-+ <input type="checkbox"/> Criar um CRUD de Checklist
-+ <input type="checkbox"/> Criar um CRUD de Usuários e perfis para possibilitar permissionamentos nos checklists
-+ <input type="checkbox"/> Criar perfis de usuário
-+ <input type="checkbox"/> Encontrar o melhor jeito de modularizar todo este ambiente
-+ <input type="checkbox"/> Create a painel of icons with [Material icons codepoints](C:\Users\User\Documents\Projects\Github\LearningAngular\node_modules\material-design-icons\iconfont\codepoints)
++ <input type="checkbox"/> Criar um CRUD de Checklist.
++ <input type="checkbox"/> Criar um CRUD de Usuários e perfis para possibilitar permissionamentos nos checklists.
++ <input type="checkbox"/> Criar perfis de usuário.
++ <input type="checkbox"/> Encontrar o melhor jeito de modularizar todo este ambiente.
++ <input type="checkbox"/> Create a painel of icons with [Material icons codepoints](C:\Users\User\Documents\Projects\Github\LearningAngular\node_modules\material-design-icons\iconfont\codepoints).
 + <input type="checkbox"/> Create fileupload component in a shared folder.
 + <input type="checkbox"/> Create feature for save user preference data.
-+ <input type="checkbox"/> Customize this app theming: (https://medium.com/@tomastrajan/the-complete-guide-to-angular-material-themes-4d165a9d24d1)
++ <input type="checkbox"/> Customize this app theming: (https://medium.com/@tomastrajan/the-complete-guide-to-angular-material-themes-4d165a9d24d1).
++ <input type="checkbox"/> Remove Hero component.
++ <input type="checkbox"/> Remove example-table component.
++ <input type="checkbox"/> Ddecide whether it it better to have a whole module exclusively for angular components.
++ <input type="checkbox"/> Create a context sensitive search box.(https://medium.com/@uditgogoi1/search-bar-with-autocomplete-using-angular-5-and-angular-material-c5a77a429da7
+)
++ <input type="checkbox"/> Validate links data: When a user provides an iconUrl clear filed Icon
 ##### Link para a Dexie: (https://raw.githubusercontent.com/dfahlander/Dexie.js/master/samples/angular2/src/app/todos.service.ts)
 #### [Mardown cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 

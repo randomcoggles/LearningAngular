@@ -21,11 +21,11 @@
   <mat-sidenav autosize class="side-nav-container" #sidenav [mode]="sideNavConfig.mode" [(opened)]="opened">
 
     <div>
-      <button *ngIf="opened" mat-button (click)="sidenav.toggle()" class="side-nav-command">
+      <button *ngIf="opened" mat-button (click)="sidenav.toggle()" class="side-nav-command" title="Toggle side menu">
         <i class="material-icons">chevron_left</i>
       </button>
-      <button *ngIf="opened" mat-button (click)="toggleLabels()" class="side-nav-command">
-        <i class="material-icons">more_vert</i>
+      <button *ngIf="opened" mat-button (click)="toggleLabels()" class="side-nav-command" title="Toggle labels">
+        <i class="material-icons">text_format</i>
       </button>
     </div>
     <app-side-menu [config]="sideNavConfig"></app-side-menu>

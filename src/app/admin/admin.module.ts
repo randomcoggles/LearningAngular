@@ -5,7 +5,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserModule } from './user/user.module';
 import { UserComponent } from '../core/user/user.component';
 import { ExampleTableComponent } from '../example-table/example-table.component';
-import { MatCardModule } from '@angular/material';
+import { MatCardModule, MatProgressBarModule } from '@angular/material';
+import { DataManagementComponent } from './data-management/data-management.component';
+import { AlertModule } from '../shared/alert/alert.module';
+import { ApiManagementComponent } from './api-management/api-management.component';
 
 const routes: Routes  = [
   {
@@ -22,8 +25,13 @@ const routes: Routes  = [
     CommonModule,
     UserModule,
     MatCardModule,
+    AlertModule,
+    MatProgressBarModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [AdminComponent, UserComponent]
+  declarations: [AdminComponent, UserComponent,
+    DataManagementComponent,
+    ApiManagementComponent
+]
 })
 export class AdminModule { }

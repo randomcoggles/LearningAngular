@@ -6,6 +6,7 @@
 body{
   height: 100vh;
   overflow-y: scroll;
+  margin: 0;
 }
 /*
 .portrait .main-header {
@@ -55,4 +56,19 @@ mat-icon>img.material-icons {
   .app-padding{
      padding: 1em;
   }
+}
+
+
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  cursor:pointer;
+  display:block;
+  width:8px;
+  color: #333;
+  text-align:center;
+  position:relative;
+}
+.has-error{
+  color: #f44336;
 }

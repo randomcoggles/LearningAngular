@@ -40,6 +40,8 @@ export class LinkService extends BaseService {
     super(http, 'links');
   }
 
+  // Example: .get({params: {sort: 'order,asc', filter: 'showAt eq side-menu'}})
+
   getAll<link>(): Observable<Link[]> {
     return this.get<Link>().pipe(
       tap(links => of(links['results'])),

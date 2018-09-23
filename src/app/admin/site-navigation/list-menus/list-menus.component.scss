@@ -16,6 +16,7 @@
 .todo-in-this-component{
   font-style: italic;
   mat-list-item {
+    padding: 3px;
     height: inherit;
     &::before{
       content: '\2639';
@@ -44,4 +45,9 @@
     font-style: normal;
     color: chartreuse;
   }
+}
+
+
+.text-center{
+  text-align: center;
 }

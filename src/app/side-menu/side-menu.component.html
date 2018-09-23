@@ -1,7 +1,7 @@
 <mat-nav-list>
   <a mat-list-item *ngFor="let menuItem of links" [routerLink]="menuItem.path" routerLinkActive="active" [title]="menuItem.description">
     <button mat-mini-fab mat-raised-button>
-      <mat-icon aria-label="Example icon-button with a heart icon">
+      <mat-icon aria-label="Menu item icon">
         <i *ngIf="menuItem.icon" class="material-icons">{{menuItem.icon}}</i>
         <i class="icon" *ngIf="menuItem.iconUrl" class="menu-icon-img" [style.background-image]="getBackground(menuItem.iconUrl)" > </i>
         <i *ngIf="!menuItem.icon && !menuItem.iconUrl" class="material-icons">circle</i>

@@ -14,7 +14,7 @@ import { LinkService, Link } from '../../../core/site-navigation/link.service';
 // TODO: Load items filtrered for by SideMenu item type
 export class ListMenusComponent implements OnInit {
   @Input() links: Link[];
-  displayedColumns: string[] = ['id', 'order', 'icon', 'title', 'description', 'path', 'showAt', 'actions'];
+  displayedColumns: string[] = ['actions', 'order', 'icon', 'title', 'description', 'path', 'showAt'];
   dataSource: MatTableDataSource<Link>;
   dialogRef: MatDialogRef<CreateLinkComponent>;
   dataSourceIsLoading: Boolean;
@@ -54,9 +54,8 @@ export class ListMenusComponent implements OnInit {
     });
   }
 
-  delete(id: number): void {
+  delete(id): void {
     // TODO: show a confirm dialog
-
     this.linkService.delete(id)
     .subscribe(() => {
       // TODO: create method for refreshing datasource
@@ -67,7 +66,6 @@ export class ListMenusComponent implements OnInit {
   }
 
   edit(item) {
-    debugger;
     this.dialog.open(UpdateMenusComponent, {
       data: item,
       hasBackdrop: true
@@ -79,6 +77,15 @@ export class ListMenusComponent implements OnInit {
   newItem() {
     this.dialog.open(CreateLinkComponent, {
       data: {command: 'create'}, // FIXME: This is not being used(yet)
+      hasBackdrop: true
+    }).afterClosed().subscribe(() => {
+      this.loadMenus();
+    });
+  }
+
+  duplicate(item) {
+    this.dialog.open(CreateLinkComponent, {
+      data: {command: 'duplicate', item: item }, // FIXME: This is not being used(yet)
       hasBackdrop: true
     }).afterClosed().subscribe(() => {
       this.loadMenus();

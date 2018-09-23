@@ -3,7 +3,7 @@ form.flex-row{
   flex-wrap: wrap;
 }
 .input-container{
-  flex: 50%;
+  flex: 47%;
   padding: 10px;
   .checkbox-wrap{
     display: flex;
@@ -12,9 +12,6 @@ form.flex-row{
   }
 }
 
-.input-container.checkbox-wrap{
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-
+.error-msg {
+  color: #f44336;
 }

@@ -21,7 +21,6 @@ import {
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ListMenusComponent } from './list-menus/list-menus.component';
 import { CacheMenuService } from '../../core/site-navigation/cache-menu.service';
-import { CreateMenuComponent } from './create-menus/create-menus.component';
 import { CreateLinkComponent } from './create-link/create-link.component';
 import { UpdateMenusComponent } from './update-menus/update-menus.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -51,13 +50,14 @@ const routes: Routes = [
     MatDialogModule,
     MatToolbarModule,
     MatAutocompleteModule,
-    MatIconModule,
     MatProgressBarModule,
     MatSortModule,
     MatMenuModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [SiteNavigationComponent, ListMenusComponent, CreateMenuComponent,
+  declarations: [
+    SiteNavigationComponent,
+    ListMenusComponent,
     CreateLinkComponent,
     UpdateMenusComponent
 ],
