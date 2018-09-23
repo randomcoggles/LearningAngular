@@ -103,5 +103,5 @@ export class CreateLinkComponent implements OnInit {
   }
 
     // convenience getter for easy access to form fields
-    get ctrls() { return this.linksForm.controls; }
+    get ctrls() { console.log(this.linksForm.controls); return this.linksForm.controls; }
 }

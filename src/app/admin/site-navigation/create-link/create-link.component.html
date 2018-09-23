@@ -7,25 +7,24 @@
       <mat-form-field class="input-container">
         <input matInput placeholder="Title" autofocus autocomplete="off" formControlName="title" required minlength="3" maxlength="65" /><!-- input field hint -->
         <mat-hint align="end"  *ngIf="ctrls.title.dirty">
-          {{ctrls.title.value.length}} of {{ctrls.title.maxlength}} characters
+          {{ctrls.title.value.length}} of 65 characters
         </mat-hint>
         <mat-hint align="start" *ngIf="ctrls.title.dirty && ctrls.title.errors">
             <div *ngIf="ctrls.title.errors.minlength" class="error-msg">At least 3 characters</div>
             <div *ngIf="ctrls.title.errors.required" class="error-msg">Title is required</div>
         </mat-hint>
       </mat-form-field>
-
       <mat-form-field class="input-container">
         <input matInput placeholder="Description" formControlName="description" required maxlength="100"  autocomplete="off" />
         <mat-hint *ngIf="ctrls.description.dirty" align="end">
-          {{ctrls.description.value.length}} of {{ctrls.description.maxlength}} characters
+          {{ctrls.description.value.length}} of 100 characters
         </mat-hint>
       </mat-form-field>
 
       <mat-form-field class="input-container">
         <input matInput placeholder="Url" formControlName="path" required maxlength="255"  autocomplete="off"/>
         <mat-hint align="end"  *ngIf="ctrls.path.dirty">
-          {{ctrls.path.value.length}} of {{ctrls.path.maxlength}} characters
+          {{ctrls.path.value.length}} of 255 characters
         </mat-hint>
       </mat-form-field>
 
@@ -46,7 +45,7 @@
       <mat-form-field class="input-container">
         <input matInput placeholder="Icon Url" formControlName="iconUrl" maxlength="255" autocomplete="off" />
         <mat-hint *ngIf="ctrls.iconUrl.dirty" align="end">
-          {{ctrls.iconUrl.value.length}} of {{ctrls.iconUrl.maxlength}} characters
+          {{ctrls.iconUrl.value.length}} of 255 characters
         </mat-hint>
       </mat-form-field>
 
