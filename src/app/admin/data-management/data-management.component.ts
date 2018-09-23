@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadSeedDataService } from '../../seed-data/load-seed-data.service';
 
 @Component({
   selector: 'app-data-management',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataManagementComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loadSeedDataService: LoadSeedDataService) { }
 
   ngOnInit() {
+  }
+  backupData() {
+    this.loadSeedDataService.downloadDataBase();
   }
 
 }

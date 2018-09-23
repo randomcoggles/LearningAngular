@@ -7,6 +7,7 @@ import {
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import { TodosComponent } from './todos/todos.component';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Link } from './core/site-navigation/link.service';
 
 @Component({
   selector: 'app-root',
@@ -27,9 +28,7 @@ export class AppComponent implements AfterContentInit {
   @ViewChild('sidenav')
   public sidenav: MatSidenav;
 
-  constructor(private breakpointObserver: BreakpointObserver) {
-
-  }
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngAfterContentInit() {
     this.breakpointObserver.observe([

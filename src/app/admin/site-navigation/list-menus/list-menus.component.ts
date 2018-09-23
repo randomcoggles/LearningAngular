@@ -85,7 +85,7 @@ export class ListMenusComponent implements OnInit {
 
   duplicate(item) {
     this.dialog.open(CreateLinkComponent, {
-      data: {command: 'duplicate', item: item }, // FIXME: This is not being used(yet)
+      data: {command: 'duplicate', item: item },
       hasBackdrop: true
     }).afterClosed().subscribe(() => {
       this.loadMenus();

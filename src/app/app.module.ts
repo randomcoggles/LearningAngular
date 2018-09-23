@@ -30,7 +30,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiInterceptor } from './core/interceptors/api-interceptor';
 import { AdminModule } from './admin/admin.module';
 import { ChecklistModule } from './checklist/checklist.module';
-import { ExampleTableComponent } from './example-table/example-table.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { fakeBackendProvider } from './core/interceptors/FakeBackendInterceptor';
 
@@ -42,8 +41,7 @@ const routes: Routes = [{ path: 'heroes', component: HeroesComponent }, {path: '
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    AngularSamplesComponent,
-    ExampleTableComponent
+    AngularSamplesComponent
   ],
   imports: [
     BrowserModule,

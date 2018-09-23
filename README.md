@@ -15,6 +15,7 @@
 + <input type="checkbox"/> Create a context sensitive search box.(https://medium.com/@uditgogoi1/search-bar-with-autocomplete-using-angular-5-and-angular-material-c5a77a429da7
 )
 + <input type="checkbox"/> Validate links data: When a user provides an iconUrl clear filed Icon
++ <input type="checkbox"/> Add anchor (a better)style.
 ## Running this app
 Run the commands: npm install, npm start. Refresh you page for links and menus to take effect.
 

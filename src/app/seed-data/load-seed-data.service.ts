@@ -21,6 +21,7 @@ export class LoadSeedDataService {
 
   // TODO: Change this to get data from asstes folder via http
   createSeedData(): Promise<any> {
+    let mustReload = false;
     let linksPromise, checkListItemsPromise;
     this.linksTable.hook('creating', function (primKey, obj, trans) {
       if ( typeof obj.order !== 'number' ) { obj.order = 999999; }
@@ -34,7 +35,31 @@ export class LoadSeedDataService {
 
     this.linksTable.count().then(nItems => {
       if (nItems < 1) {
-        linksPromise = this.linksTable.bulkAdd(seedLinks);
+        mustReload = true;
+        linksPromise = this.linksTable.bulkAdd(seedLinks.map(item => {
+          return {
+            'title': item.title,
+            'description': item.description,
+            'path': item.path,
+            'disable': Boolean(item.disable),
+            'expanded': Boolean(item.expanded),
+            'icon': item.icon,
+            'iconUrl': item.iconUrl,
+            'order': Number(item.order),
+            'createdDate': new Date(item.createdDate),
+            'id': Number(item.id),
+            'lastUpdateDate': new Date(item.lastUpdateDate),
+            showAt: item.showAt
+        } ;
+        }));
+
+        // console.log('Must reload application');
+        // alert('Reload in 2 seconds...');
+        const firstRunWithoutLinks = localStorage.getItem('firstRunWithoutLinks');
+        if ( !firstRunWithoutLinks) {
+          localStorage.setItem('firstRunWithoutLinks', 'true');
+          setTimeout( () =>  location.reload(), 2000);
+        }
       } else {
         linksPromise = Promise.resolve(true);
       }
